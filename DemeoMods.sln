@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordSocialProvider", "DiscordSocialProvider\DiscordSocialProvider.csproj", "{6DD5FDD7-B782-45D0-8E9B-F297BEA70C26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyrrhasUtils", "PyrrhasUtils\PyrrhasUtils.csproj", "{14F28587-DA7C-4719-B490-10E7F0030B6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clock", "Clock\Clock.csproj", "{530B08B6-515F-4E13-A752-01CA968E6372}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DD5FDD7-B782-45D0-8E9B-F297BEA70C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD5FDD7-B782-45D0-8E9B-F297BEA70C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD5FDD7-B782-45D0-8E9B-F297BEA70C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD5FDD7-B782-45D0-8E9B-F297BEA70C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F28587-DA7C-4719-B490-10E7F0030B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F28587-DA7C-4719-B490-10E7F0030B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F28587-DA7C-4719-B490-10E7F0030B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F28587-DA7C-4719-B490-10E7F0030B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530B08B6-515F-4E13-A752-01CA968E6372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530B08B6-515F-4E13-A752-01CA968E6372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530B08B6-515F-4E13-A752-01CA968E6372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530B08B6-515F-4E13-A752-01CA968E6372}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

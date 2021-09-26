@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{6DD5FDD7-B782-45D0-8E9B-F297BEA70C26}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>DiscordSocialProvider</RootNamespace>
+        <AssemblyName>DiscordSocialProvider</AssemblyName>
+        <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+          <HintPath>$(DemeoDir)\demeo_Data\Managed\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="MelonLoader">
+          <HintPath>$(DemeoDir)\MelonLoader\MelonLoader.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(DemeoDir)\demeo_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="DiscordSocialProviderImpl.cs" />
+        <Compile Include="DiscordSocialProviderMod.cs" />
+        <Compile Include="Discord\ActivityManager.cs" />
+        <Compile Include="Discord\Constants.cs" />
+        <Compile Include="Discord\Core.cs" />
+        <Compile Include="Discord\ImageManager.cs" />
+        <Compile Include="Discord\LobbyManager.cs" />
+        <Compile Include="Discord\StorageManager.cs" />
+        <Compile Include="Discord\StoreManager.cs" />
+        <Compile Include="Patches\SocialHubPatches.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Properties\Resources.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\PyrrhasUtils\PyrrhasUtils.csproj">
+        <Project>{14f28587-da7c-4719-b490-10e7f0030b6f}</Project>
+        <Name>PyrrhasUtils</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="Properties\Resources.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <Content Include="Resources\discord_game_sdk.dll" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <Target Name="CopyToModsDir" AfterTargets="Build">
+        <Copy SourceFiles="$(OutputPath)\$(ProjectName).dll" DestinationFolder="$(DemeoDir)\Mods" />
+    </Target>
+
+</Project>
