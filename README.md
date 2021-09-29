@@ -1,4 +1,6 @@
-﻿# Demeo Mods
+﻿[![Discord](https://img.shields.io/discord/819390216916828170?logo=discord&logoColor=white&style=flat-square)](https://discord.gg/P7H7yqPSfE)
+
+# Demeo Mods
 A collection of mods for Demeo.
 
 ## Discord Social Provider
