@@ -14,7 +14,7 @@ namespace Clock
     {
         public override void OnSceneWasInitialized(int buildIndex, string sceneName)
         {
-            if (sceneName == "LobbySteamVR")
+            if (sceneName == "LobbySteamVR" || sceneName == "Lobby")
             {
                 new GameObject("ClockMod").AddComponent<ClockBehaviour>();
             }
