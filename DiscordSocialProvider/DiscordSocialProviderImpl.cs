@@ -13,7 +13,7 @@ namespace DiscordSocialProvider
 
         public DiscordSocialProviderImpl(Action<ISocialProvider, JoinParameters> onJoinReceived)
         {
-            this._discord = new DiscordSdk.Discord(844058872573722674, (ulong)DiscordSdk.CreateFlags.Default);
+            this._discord = new DiscordSdk.Discord(844058872573722674, (ulong)DiscordSdk.CreateFlags.NoRequireDiscord);
             this._discord.SetLogHook(DiscordSdk.LogLevel.Debug,
                 (level, message) => MelonLogger.Msg($"(Discord|{level.ToString().ToUpper()}) {message}"));
             this._discord.GetActivityManager().RegisterSteam(1484280);
