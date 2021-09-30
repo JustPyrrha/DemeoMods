@@ -91,7 +91,7 @@ namespace DiscordSocialProvider
                 this._activity.Party.Id = groupID;
                 this._activity.Party.Size = new DiscordSdk.PartySize
                 {
-                    CurrentSize = 1,
+                    CurrentSize = PhotonNetwork.playerList != null ? PhotonNetwork.playerList.Length : 1,
                     MaxSize = 4
                 };
             }
