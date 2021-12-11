@@ -1,6 +1,7 @@
 ﻿using System;
 using Boardgame.Social;
 using MelonLoader;
+using Photon.Pun;
 using PyrrhasUtils.Patches;
 using DiscordSdk = Discord;
 
@@ -91,7 +92,7 @@ namespace DiscordSocialProvider
                 this._activity.Party.Id = groupID;
                 this._activity.Party.Size = new DiscordSdk.PartySize
                 {
-                    CurrentSize = PhotonNetwork.playerList != null ? PhotonNetwork.playerList.Length : 1,
+                    CurrentSize = PhotonNetwork.PlayerList != null ? PhotonNetwork.PlayerList.Length : 1,
                     MaxSize = 4
                 };
             }
