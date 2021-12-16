@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using MelonLoader;
 
 namespace PyrrhasUtils
@@ -8,19 +6,21 @@ namespace PyrrhasUtils
     public static class ModInfo
     {
         public const string Name = "Pyrrha's Utils";
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
     }
-    
+
     public class PyrrhasUtilsMod : MelonMod
     {
+        internal static MelonLogger.Instance Logger = new MelonLogger.Instance(ModInfo.Name);
+        
         public override void OnApplicationStart()
         {
-            MelonLogger.Msg("Trans Rights are Human Rights");
-            MelonLogger.Msg(ConsoleColor.Cyan,    "===============");
-            MelonLogger.Msg(ConsoleColor.Magenta, "===============");
-            MelonLogger.Msg(ConsoleColor.White,   "===============");
-            MelonLogger.Msg(ConsoleColor.Magenta, "===============");
-            MelonLogger.Msg(ConsoleColor.Cyan,    "===============");
+            Logger.Msg("Trans Rights are Human Rights");
+            Logger.Msg(ConsoleColor.Cyan,    "===============");
+            Logger.Msg(ConsoleColor.Magenta, "===============");
+            Logger.Msg(ConsoleColor.White,   "===============");
+            Logger.Msg(ConsoleColor.Magenta, "===============");
+            Logger.Msg(ConsoleColor.Cyan,    "===============");
         }
     }
 }

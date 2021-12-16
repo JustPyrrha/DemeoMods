@@ -1,7 +1,5 @@
-﻿using System;
-using Boardgame;
+﻿using Boardgame;
 using HarmonyLib;
-using MelonLoader;
 
 namespace PyrrhasUtils.Patches
 {
