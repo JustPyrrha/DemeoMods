@@ -21,8 +21,7 @@ namespace DiscordSocialProvider
 
         private static string ExtractDiscordSdk()
         {
-            // @todo: replace with MelonUtils.UserLibsDirectory with ML 0.4.4
-            var userLibsDir = Path.Combine(MelonUtils.GameDirectory, "UserLibs");
+            var userLibsDir = MelonUtils.UserLibsDirectory;
             
             var path = Path.Combine(userLibsDir, "discord_game_sdk.dll");
             if (!File.Exists(path))
