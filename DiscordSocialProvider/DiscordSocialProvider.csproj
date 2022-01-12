@@ -35,6 +35,9 @@
         <Reference Include="Assembly-CSharp">
           <HintPath>$(DemeoDir)\demeo_Data\Managed\Assembly-CSharp.dll</HintPath>
         </Reference>
+        <Reference Include="Demeo">
+          <HintPath>$(DemeoDir)\MelonLoader\Dependencies\CompatibilityLayers\Demeo.dll</HintPath>
+        </Reference>
         <Reference Include="MelonLoader">
           <HintPath>$(DemeoDir)\MelonLoader\MelonLoader.dll</HintPath>
         </Reference>
