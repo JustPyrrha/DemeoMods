@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Reflection;
 using Boardgame.Social;
 using HarmonyLib;
-using MelonLoader;
-using PyrrhasUtils.Patches;
 
 namespace DiscordSocialProvider.Patches
 {

@@ -1,8 +1,6 @@
 ﻿using System;
 using Boardgame.Social;
-using MelonLoader;
 using Photon.Pun;
-using PyrrhasUtils.Patches;
 using DiscordSdk = Discord;
 
 namespace DiscordSocialProvider
