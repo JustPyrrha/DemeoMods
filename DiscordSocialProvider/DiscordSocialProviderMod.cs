@@ -8,7 +8,7 @@ namespace DiscordSocialProvider
     public static class ModInfo
     {
         public const string Name = "Discord Social Provider";
-        public const string Version = "1.0.1";
+        public const string Version = "1.2.0";
     }
     
     public class DiscordSocialProviderMod : MelonMod
