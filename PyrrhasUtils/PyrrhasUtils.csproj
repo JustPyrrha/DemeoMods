@@ -35,6 +35,9 @@
         <Reference Include="Assembly-CSharp">
             <HintPath>$(DemeoDir)\demeo_Data\Managed\Assembly-CSharp.dll</HintPath>
         </Reference>
+        <Reference Include="Demeo">
+          <HintPath>$(DemeoDir)\MelonLoader\Dependencies\CompatibilityLayers\Demeo.dll</HintPath>
+        </Reference>
         <Reference Include="MelonLoader">
             <HintPath>$(DemeoDir)\MelonLoader\MelonLoader.dll</HintPath>
         </Reference>
@@ -50,6 +53,7 @@
         <Compile Include="Patches\ContextPatch.cs" />
         <Compile Include="PyrrhasUtilsMod.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Utilities\SceneUtilities.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Target Name="CopyToModsDir" AfterTargets="Build">
