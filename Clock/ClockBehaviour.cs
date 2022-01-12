@@ -8,7 +8,7 @@ namespace Clock
 {
     public class ClockBehaviour : MonoBehaviour
     {
-        private TextMeshPro _textMesh;
+        private TextMeshPro TextMesh;
 
         private void Start()
         {
@@ -18,18 +18,18 @@ namespace Clock
             canvas.transform.position = new Vector3(-100, 65, 0);
             canvas.transform.rotation = Quaternion.Euler(new Vector3(-20, -90, 0));
             
-            this._textMesh = canvas.gameObject.AddComponent<TextMeshPro>();
-            this._textMesh.gameObject.SetActive(false);
-            this._textMesh.fontSize = 45;
-            this._textMesh.alignment = TextAlignmentOptions.Center;
-            this._textMesh.text = DateTime.Now.ToString("hh:mm tt");
-            this._textMesh.font = Resources.FindObjectsOfTypeAll<TMP_FontAsset>().First(x => x.name == "Demeo SDF");
-            this._textMesh.gameObject.SetActive(true);
+            this.TextMesh = canvas.gameObject.AddComponent<TextMeshPro>();
+            this.TextMesh.gameObject.SetActive(false);
+            this.TextMesh.fontSize = 45;
+            this.TextMesh.alignment = TextAlignmentOptions.Center;
+            this.TextMesh.text = DateTime.Now.ToString("hh:mm tt");
+            this.TextMesh.font = Resources.FindObjectsOfTypeAll<TMP_FontAsset>().First(x => x.name == "Demeo SDF");
+            this.TextMesh.gameObject.SetActive(true);
         }
         
         private void Update()
         {
-            this._textMesh.text = DateTime.Now.ToString("hh:mm tt");
+            this.TextMesh.text = DateTime.Now.ToString("hh:mm tt");
         }
     }
 }
