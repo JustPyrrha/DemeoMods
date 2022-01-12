@@ -13,6 +13,8 @@ namespace DiscordSocialProvider
     
     public class DiscordSocialProviderMod : MelonMod
     {
+        internal static MelonLogger.Instance Logger = new MelonLogger.Instance(ModInfo.Name);
+        
         public override void OnApplicationStart()
         {
             var discordSdkPath = ExtractDiscordSdk();
