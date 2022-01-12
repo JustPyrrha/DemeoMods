@@ -49,7 +49,7 @@ namespace DiscordSocialProvider
         {
             switch (statusID)
             {
-                case "GameState_MainMenu":
+                case PlayWithFriendsController.destinationMainMenu:
                 {
                     this.Activity.Details = "In the Lobby";
                     this.Activity.State = "";
@@ -63,7 +63,7 @@ namespace DiscordSocialProvider
                     this.Activity.Assets.LargeImage = "logo";
                     break;
                 }
-                case "GameState_Tutorial":
+                case PlayWithFriendsController.destinationSkirmish:
                 {
                     this.Activity.Details = "In Adventure";
                     this.Activity.State = "Playing Skirmish";
@@ -71,21 +71,21 @@ namespace DiscordSocialProvider
                     
                     break;
                 }
-                case "GameState_Skirmish":
+                case PlayWithFriendsController.destinationElvenQueen:
                 {
                     this.Activity.Details = "In Adventure";
                     this.Activity.State = "The Black Sarcophagus";
                     this.Activity.Assets.LargeImage = "book1";
                     break;
                 }
-                case "Adventure_TheBlackSarcophagus":
+                case PlayWithFriendsController.destinationRatKing:
                 {
                     this.Activity.Details = "In Adventure";
                     this.Activity.State = "Realm Of The Rat King";
                     this.Activity.Assets.LargeImage = "book2";
                     break;
                 }
-                case "Adventure_RealmOfTheRatKing":
+                case PlayWithFriendsController.destinationRootsOfEvil:
                 {
                     this.Activity.Details = "In Adventure";
                     this.Activity.State = "Roots of Evil";
