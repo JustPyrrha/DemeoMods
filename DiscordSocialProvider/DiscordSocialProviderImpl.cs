@@ -9,23 +9,23 @@ namespace DiscordSocialProvider
 {
     public class DiscordSocialProviderImpl : ISocialProvider
     {
-        private readonly DiscordSdk.Discord _discord;
-        private DiscordSdk.Activity _activity;
+        private readonly DiscordSdk.Discord Discord;
+        private DiscordSdk.Activity Activity;
 
         public DiscordSocialProviderImpl(Action<ISocialProvider, JoinParameters> onJoinReceived)
         {
-            this._discord = new DiscordSdk.Discord(844058872573722674, (ulong)DiscordSdk.CreateFlags.NoRequireDiscord);
-            this._discord.SetLogHook(DiscordSdk.LogLevel.Debug,
-                (level, message) => MelonLogger.Msg($"(Discord|{level.ToString().ToUpper()}) {message}"));
-            this._discord.GetActivityManager().RegisterSteam(1484280);
+            this.Discord = new DiscordSdk.Discord(844058872573722674, (ulong)DiscordSdk.CreateFlags.NoRequireDiscord);
+            this.Discord.SetLogHook(DiscordSdk.LogLevel.Debug,
+                (level, message) => DiscordSocialProviderMod.Logger.Msg($"(Discord|{level.ToString().ToUpper()}) {message}"));
+            this.Discord.GetActivityManager().RegisterSteam(1484280);
 
             // Set Activity defaults
-            this._activity.Assets.SmallImage = "pyrrha";
-            this._activity.Assets.SmallText = $"Mod by PyrrhaDev | v{ModInfo.Version}";
-            this._activity.Assets.LargeImage = "logo";
-            this._activity.Assets.LargeText = $"Demeo v{RGVersion.VERSION}";
+            this.Activity.Assets.SmallImage = "pyrrha";
+            this.Activity.Assets.SmallText = $"Mod by PyrrhaDev | v{ModInfo.Version}";
+            this.Activity.Assets.LargeImage = "logo";
+            this.Activity.Assets.LargeText = $"Demeo v{RGVersion.VERSION}";
 
-            this._discord.GetActivityManager().OnActivityJoin += secret =>
+            this.Discord.GetActivityManager().OnActivityJoin += secret =>
             {
                 var parts = secret.Split(',');
                 onJoinReceived(this, new JoinParameters
@@ -41,7 +41,7 @@ namespace DiscordSocialProvider
 
         public void Tick()
         {
-            this._discord?.RunCallbacks();
+            this.Discord?.RunCallbacks();
         }
 
         public void SetCurrentStatus(string statusID, bool isJoinable, string gameID, string groupID,
@@ -51,46 +51,60 @@ namespace DiscordSocialProvider
             {
                 case "GameState_MainMenu":
                 {
-                    this._activity.Details = "In the Lobby";
-                    this._activity.State = "";
-                    this._activity.Assets.LargeImage = "logo";
+                    this.Activity.Details = "In the Lobby";
+                    this.Activity.State = "";
+                    this.Activity.Assets.LargeImage = "logo";
+                    break;
+                }
+                case PlayWithFriendsController.destinationTutorial:
+                {
+                    this.Activity.Details = "In the tutorial";
+                    this.Activity.State = "";
+                    this.Activity.Assets.LargeImage = "logo";
                     break;
                 }
                 case "GameState_Tutorial":
                 {
-                    this._activity.Details = "In the tutorial";
-                    this._activity.State = "";
-                    this._activity.Assets.LargeImage = "logo";
+                    this.Activity.Details = "In Adventure";
+                    this.Activity.State = "Playing Skirmish";
+                    this.Activity.Assets.LargeImage = "logo";
+                    
                     break;
                 }
                 case "GameState_Skirmish":
                 {
-                    this._activity.Details = "In Adventure";
-                    this._activity.State = "Playing Skirmish";
-                    this._activity.Assets.LargeImage = "logo";
-                    
+                    this.Activity.Details = "In Adventure";
+                    this.Activity.State = "The Black Sarcophagus";
+                    this.Activity.Assets.LargeImage = "book1";
                     break;
                 }
                 case "Adventure_TheBlackSarcophagus":
                 {
-                    this._activity.Details = "In Adventure";
-                    this._activity.State = "The Black Sarcophagus";
-                    this._activity.Assets.LargeImage = "book1";
+                    this.Activity.Details = "In Adventure";
+                    this.Activity.State = "Realm Of The Rat King";
+                    this.Activity.Assets.LargeImage = "book2";
                     break;
                 }
                 case "Adventure_RealmOfTheRatKing":
                 {
-                    this._activity.Details = "In Adventure";
-                    this._activity.State = "Realm Of The Rat King";
-                    this._activity.Assets.LargeImage = "book2";
+                    this.Activity.Details = "In Adventure";
+                    this.Activity.State = "Roots of Evil";
+                    this.Activity.Assets.LargeImage = "book3";
+                    break;
+                }
+                case "Adventure_Custom": // custom adventures from Custom Adventures mod
+                {
+                    this.Activity.Details = "In Custom Adventure";
+                    this.Activity.State = "<adventure name>"; // @todo: pull custom adventure name
+                    this.Activity.Assets.LargeImage = "logo";
                     break;
                 }
             }
             
             if (groupID != "")
             {
-                this._activity.Party.Id = groupID;
-                this._activity.Party.Size = new DiscordSdk.PartySize
+                this.Activity.Party.Id = groupID;
+                this.Activity.Party.Size = new DiscordSdk.PartySize
                 {
                     CurrentSize = PhotonNetwork.PlayerList != null ? PhotonNetwork.PlayerList.Length : 1,
                     MaxSize = 4
@@ -98,29 +112,29 @@ namespace DiscordSocialProvider
             }
             else
             {
-                this._activity.Party = new DiscordSdk.ActivityParty();
+                this.Activity.Party = new DiscordSdk.ActivityParty();
             }
             
             if (isJoinable && gameID != "")
             {
-                this._activity.Secrets.Join = string.Join(",", gameID, groupID, statusID);
+                this.Activity.Secrets.Join = string.Join(",", gameID, groupID, statusID);
             }
             else
             {
-                this._activity.Secrets.Join = null;
+                this.Activity.Secrets.Join = null;
             }
-            this._activity.Timestamps.Start = DateTimeOffset.Now.ToUnixTimeSeconds();
+            this.Activity.Timestamps.Start = DateTimeOffset.Now.ToUnixTimeSeconds();
             
-            this._discord.GetActivityManager().UpdateActivity(this._activity, result =>
+            this.Discord.GetActivityManager().UpdateActivity(this.Activity, result =>
             {
                 onDone(this, result == DiscordSdk.Result.Ok);
-                MelonLogger.Msg($"(Discord|INFO): Updating status result: {result.ToString()}");
+                DiscordSocialProviderMod.Logger.Msg($"(Discord|INFO): Updating status result: {result.ToString()}");
             });
         }
 
         public void Dispose()
         {
-            this._discord?.Dispose();
+            this.Discord?.Dispose();
         }
     }
 }
