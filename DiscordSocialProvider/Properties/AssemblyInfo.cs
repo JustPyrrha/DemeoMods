@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using DiscordSocialProvider;
 using MelonLoader;
@@ -39,3 +40,6 @@ using MelonLoader;
 [assembly: MelonInfo(typeof(DiscordSocialProviderMod), ModInfo.Name, ModInfo.Version, "PyrrhaDev")]
 [assembly: MelonGame("Resolution Games", "Demeo")]
 [assembly: MelonAdditionalDependencies("PyrrhasUtils")]
+[assembly: MelonAuthorColor(ConsoleColor.Magenta)]
+[assembly: MelonID("566973")]
+[assembly: VerifyLoaderVersion("0.5.3", true)]

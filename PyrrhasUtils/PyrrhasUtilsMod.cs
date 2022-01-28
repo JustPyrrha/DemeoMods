@@ -6,7 +6,7 @@ namespace PyrrhasUtils
     public static class ModInfo
     {
         public const string Name = "Pyrrha's Utils";
-        public const string Version = "1.2.0";
+        public const string Version = "1.3.0";
     }
 
     public class PyrrhasUtilsMod : MelonMod

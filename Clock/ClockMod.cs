@@ -7,7 +7,7 @@ namespace Clock
     public static class ModInfo
     {
         public const string Name = "Clock";
-        public const string Version = "1.2.0";
+        public const string Version = "1.3.0";
     }
     
     public class ClockMod : MelonMod

@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using Clock;
 using MelonLoader;
@@ -37,3 +38,6 @@ using MelonLoader;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: MelonInfo(typeof(ClockMod), ModInfo.Name, ModInfo.Version, "PyrrhaDev")]
+[assembly: MelonAuthorColor(ConsoleColor.Magenta)]
+[assembly: MelonID("566971")]
+[assembly: VerifyLoaderVersion("0.5.3", true)]

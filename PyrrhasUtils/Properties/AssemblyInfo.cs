@@ -38,3 +38,6 @@ using PyrrhasUtils;
 
 [assembly: MelonInfo(typeof(PyrrhasUtilsMod), ModInfo.Name, ModInfo.Version, "PyrrhaDev")]
 [assembly: MelonGame("Resolution Games", "Demeo")]
+
+[assembly: MelonID("566960")]
+[assembly: VerifyLoaderVersion("0.5.3", true)]
