@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(DemeoDir)/demeo_Data/Managed/Assembly-CSharp.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(DemeoDir)\demeo_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Mono.Cecil" Version="0.11.5" />
+    </ItemGroup>
+
+    <Target Name="CopyToModsDir" AfterTargets="Build">
+        <Copy SourceFiles="$(OutputPath)\$(ProjectName).dll" DestinationFolder="$(DemeoDir)\DemeoMods" />
+        <Move SourceFiles="$(DemeoDir)\DemeoMods\$(ProjectName).dll" DestinationFiles="$(DemeoDir)\DemeoMods\0$(ProjectName).dll" />
+    </Target>
+
+</Project>

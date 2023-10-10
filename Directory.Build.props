@@ -1,0 +1,5 @@
+﻿<Project>
+    <PropertyGroup>
+        <DemeoDir>C:\Program Files (x86)\Steam\steamapps\common\Demeo - PC Edition</DemeoDir>
+    </PropertyGroup>
+</Project>
